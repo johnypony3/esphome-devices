@@ -1,0 +1,8 @@
+substitutions:
+  name: garage-door-0c3294
+  project_name: "theemm.garage-door"
+  friendly_name: "Garage Door"
+
+packages:
+  theemm.garage-door: github://athom-tech/athom-configs/athom-garage-door.yaml
+  common: !include defs/common.yaml

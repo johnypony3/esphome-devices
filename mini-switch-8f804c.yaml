@@ -1,0 +1,3 @@
+packages:
+  common: !include defs/mini-switch.yaml
+
