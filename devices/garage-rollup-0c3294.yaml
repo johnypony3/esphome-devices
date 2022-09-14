@@ -1,0 +1,8 @@
+substitutions:
+  name: "garage-rollup-0c3294"
+  friendly_name: "Garage Rollup"
+  project_name: "theemm.rollup"
+  project_version: "1.0"
+
+packages:
+  common: !include defs/rollup.yaml

@@ -1,0 +1,7 @@
+substitutions:
+  name: "garage-dust-extractor-8f5827"
+  friendly_name: "Garage Dust Extractor"
+  icon: mdi:fan
+
+packages:
+  common: !include defs/mini-light.yaml

@@ -1,0 +1,8 @@
+substitutions:
+  name: cozy-636fe4
+  project_name: "theemm.light"
+  friendly_name: "Garage Lightight"
+
+packages:
+  theemm.light: github://athom-tech/athom-configs/athom-rgbww-light.yaml
+  common: !include defs/common.yaml

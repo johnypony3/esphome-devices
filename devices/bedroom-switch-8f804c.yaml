@@ -1,0 +1,6 @@
+substitutions:
+  name: "bedroom-switch-8f804c"
+  friendly_name: "Bedroom Switch"
+
+packages:
+  common: !include defs/mini-light.yaml

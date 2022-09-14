@@ -1,34 +1,33 @@
 substitutions:
   project_name: "theemm.mini-switch"
   project_version: "1.0"
+  icon: mdi:toggle-switch-variant
+  descriptor: ""
 
 packages:
   common: !include ./common.yaml
 
-# output:
-#   - platform: gpio
-#     id: relay_output
-#     pin: GPIO13
+output:
+  - platform: gpio
+    id: relay_output
+    pin: GPIO13
 
 light:
   - platform: status_led
     name: "${friendly_name} Blue LED"
-    disabled_by_default: false
-    pin: GPIO4
+    disabled_by_default: true
+    pin:
+      number: GPIO4
+      inverted: true
 
-  # - platform: binary
-  #   id: mini_relay_light
-  #   output: relay_output
-  #   name: "${friendly_name} Light"
-  #   restore_mode: ${light_restore_mode}
-
-switch:
-  - platform: gpio
-    id: mini_relay_switch
-    name: "${friendly_name} Switch"
-    restore_mode: ${light_restore_mode}
-    pin: GPIO14
-
+  - platform: binary
+    id: mini_relay
+    output: relay_output
+    name: "${friendly_name}${descriptor}"
+    restore_mode: "${light_restore_mode}"
+    icon: "${icon}"
+    # "manufacturer": self.light.manufacturername,
+    # "model": self.light.productname
 sensor:
   - platform: uptime
     name: "${friendly_name} Uptime"
@@ -44,8 +43,7 @@ binary_sensor:
       number: GPIO14
       mode: INPUT_PULLUP
     on_state:
-      - switch.toggle: mini_relay_switch
-      #- light.toggle: mini_relay_light
+      - light.toggle: mini_relay
 
     on_multi_click:
       - timing:
@@ -73,8 +71,7 @@ binary_sensor:
           - ON for at most 1s
           - OFF for at least 0.2s
         then:
-          # - light.toggle: mini_relay_light
-          - switch.toggle: mini_relay_switch
+          - light.toggle: mini_relay
       - timing:
           - ON for at least 4s
         then:

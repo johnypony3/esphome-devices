@@ -1,0 +1,60 @@
+substitutions:
+  project_name: "theemm.martin-jerry-sd01"
+  project_version: "1.0"
+
+packages:
+  common: !include ./common.yaml
+
+esp8266:
+  board: esp01_1m
+
+# Status LED
+status_led: 
+  pin:
+    number: GPIO4   # Red LED
+    inverted: True
+
+# Button, use 10ms debounce (seems to work for me)
+binary_sensor:
+  - platform: gpio
+    name: ${friendly_name} Button
+    id: deb_button
+    pin:
+      number: GPIO13
+      mode: INPUT_PULLUP
+      inverted: True
+    internal: True
+    filters:
+      - delayed_on: 10ms
+      - delayed_off: 10ms
+    on_press:
+      - light.toggle: main_light
+      
+# Blue LED
+switch:
+  - platform: gpio
+    name: ${friendly_name} Blue LED
+    id: blue_led
+    pin:
+      number: GPIO5
+      inverted: True
+    internal: True
+
+# Relay
+output:
+  - platform: gpio
+    id: relay
+    pin:
+      number: GPIO12
+
+# I prefer to use 'light' instead of 'switch', since mine will
+# be used to control a light
+light:
+  - platform: binary
+    name: $friendly_name
+    output: relay
+    id: main_light
+    on_turn_on:
+      - switch.turn_on:  blue_led
+    on_turn_off:
+      - switch.turn_off: blue_led

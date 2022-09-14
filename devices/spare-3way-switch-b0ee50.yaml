@@ -1,0 +1,6 @@
+substitutions:
+  name: spare-3way-switch-b0ee50
+  friendly_name: Spare 3Way Switch
+
+packages:
+  common: !include defs/martin-jerry-sd01.yaml

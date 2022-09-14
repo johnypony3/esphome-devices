@@ -1,0 +1,6 @@
+substitutions:
+  name: lower-stairs-switch-40e20a
+  friendly_name: Lower Stairs Switch
+
+packages:
+  common: !include defs/martin-jerry-sd01.yaml

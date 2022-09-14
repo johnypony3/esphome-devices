@@ -1,0 +1,6 @@
+substitutions:
+  name: upper-stairs-switch-b0e82e
+  friendly_name: Upper Stairs Switch
+
+packages:
+  common: !include defs/martin-jerry-sd01.yaml

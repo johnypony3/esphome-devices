@@ -1,0 +1,6 @@
+substitutions:
+  name: hall-switch-3fd0d7
+  friendly_name: Hall Switch
+
+packages:
+  common: !include defs/martin-jerry-sd01.yaml
