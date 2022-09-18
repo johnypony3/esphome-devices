@@ -4,4 +4,4 @@ substitutions:
   icon: mdi:fan
 
 packages:
-  common: !include defs/mini-light.yaml
+  common: !include ../defs/mini-light.yaml
