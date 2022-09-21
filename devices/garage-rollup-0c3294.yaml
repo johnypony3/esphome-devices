@@ -5,4 +5,4 @@ substitutions:
   project_version: "1.0"
 
 packages:
-  common: !include defs/rollup.yaml
+  common: !include ../defs/rollup.yaml

@@ -3,4 +3,4 @@ substitutions:
   friendly_name: Upper Stairs Switch
 
 packages:
-  common: !include defs/martin-jerry-sd01.yaml
+  common: !include ../defs/martin-jerry-sd01.yaml
